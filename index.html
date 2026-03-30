@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Architecture Studio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">LUMINA<span class="accent">.</span></div>
+        <nav>
+            <ul>
+                <li><a href="#about">O nas</a></li>
+                <li><a href="#services">Usługi</a></li>
+                <li><a href="#portfolio">Projekty</a></li>
+                <li><a href="#contact" class="nav-btn">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-split-images">
+            
+            <div class="hero-split home">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop" alt="Nowoczesny dom z basenem">
+                <div class="hero-split-overlay"></div>
+            </div>
+
+            <div class="hero-split office">
+                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Nowoczesne, minimalistyczne biuro">
+                <div class="hero-split-overlay"></div>
+            </div>
+
+        </div>
+        
+        <div class="hero-content">
+            <h1>Miejsca, w których<br>chce się żyć i pracować.</h1>
+            <p>Projektujemy minimalistyczne przestrzenie dopasowane do Twoich potrzeb.</p>
+            <a href="#portfolio" class="btn">Zobacz realizacje</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>Kim jesteśmy?</h2>
+        <p>Jesteśmy butikowym studiem projektowym. Wierzymy, że mniej znaczy więcej, a forma powinna zawsze podążać za funkcją.</p>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Nasze usługi</h2>
+        <div class="services-grid">
+            <div class="card">
+                <h3>Wnętrza</h3>
+                <p>Projektowanie nowoczesnych przestrzeni mieszkalnych i biurowych.</p>
+            </div>
+            <div class="card">
+                <h3>Architektura</h3>
+                <p>Od koncepcji po pozwolenie na budowę.</p>
+            </div>
+            <div class="card">
+                <h3>Nadzór</h3>
+                <p>Kontrola jakości na każdym etapie realizacji.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <h2>Wybrane realizacje</h2>
+        <div class="portfolio-grid">
+            
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop">
+                <div class="portfolio-overlay">
+                    <h3>Rezydencja na skarpie<br>- Międzyzdroje -</h3>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop">
+                <div class="portfolio-overlay">
+                    <h3>Rezydencja leśna<br>- Gdańsk -</h3>
+                    
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://plus.unsplash.com/premium_photo-1661951926748-413f9a5b0f55?q=80&w=1123&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                <div class="portfolio-overlay">
+                    <h3>Biuro studia graficznego<br>- Kraków -</h3>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=800&auto=format&fit=crop">
+                <div class="portfolio-overlay">
+                    <h3>Apartament w centrum miasta<br>- Warszawa -</h3>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Porozmawiajmy o Twoim projekcie</h2>
+        
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Lumina Studio</h3>
+                <p>Jesteśmy gotowi na nowe wyzwania. Napisz do nas, a odpowiemy w ciągu 24 godzin.</p>
+                <br>
+                <p>📍 ul. Szklana 12, 00-001 Warszawa</p>
+                <p>✉️ hello@luminastudio.pl</p>
+                <p>📞 +48 123 456 789</p>
+            </div>
+
+            <form class="contact-form">
+                <input type="text" placeholder="Imię i nazwisko" required>
+                <input type="email" placeholder="Adres e-mail" required>
+                <textarea placeholder="Opisz krótko swój projekt..." rows="5" required></textarea>
+                <button type="submit" class="btn">Wyślij wiadomość</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Lumina Architecture Studio. Koncept wizytówki.</p>
+    </footer>
+
+</body>
+</html>

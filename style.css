@@ -1,0 +1,382 @@
+/* RESET PODSTAWOWY */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* GŁÓWNE USTAWIENIA TYPOGRAFII */
+body {
+    font-family: 'Open Sans', sans-serif; /* Czysty font do tekstu */
+    color: #4a4a4a;
+    line-height: 1.7; /* Większy odstęp między liniami = strona "oddycha" */
+    background-color: #fafafa;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Montserrat', sans-serif; /* Elegancki font do nagłówków */
+    color: #1a1a1a;
+    font-weight: 700;
+}
+
+/* NAWIGACJA */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 50px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+    position: sticky; /* Menu będzie się trzymać góry ekranu */
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    letter-spacing: 2px; /* Rozstrzelone litery wyglądają premium */
+}
+
+/* POMARAŃCZOWE AKCENTY FIRMOWE */
+
+/* Kropka w logo */
+.accent {
+    color: #d35400;
+}
+
+/* Ozdobna linia pod nagłówkami sekcji (H2) */
+section h2::after {
+    content: ''; /* Wymagane, żeby element w ogóle się pojawił */
+    display: block;
+    width: 60px; /* Długość kreseczki */
+    height: 3px; /* Grubość kreseczki */
+    background-color: #d35400; /* Nasz pomarańcz */
+    margin: 15px auto 0; /* Automatycznie centruje linię pod tekstem */
+}
+
+/* WYRÓŻNIONY PRZYCISK "KONTAKT" W MENU */
+.navbar a.nav-btn {
+    background-color: #d35400; /* Nasz firmowy pomarańcz */
+    color: #ffffff; /* Biały tekst na pomarańczowym tle */
+    padding: 10px 25px;
+    border-radius: 3px; /* Bardzo delikatne, nowoczesne zaokrąglenie rogów */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Zachowanie po najechaniu myszką */
+.navbar a.nav-btn:hover {
+    background-color: #e67e22; /* Jaśniejszy pomarańcz */
+    color: #ffffff; /* Wymuszamy, żeby tekst został biały (nie robił się pomarańczowy jak reszta menu) */
+    transform: translateY(-2px); /* Przycisk lekko unosi się do góry */
+}
+
+/* Wyrównanie linii w sekcji kontaktowej (bo tam daliśmy tekst do lewej) */
+#contact h2::after {
+    margin: 15px 0 0; /* Zeruje automatyczne centrowanie z prawej i lewej */
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #4a4a4a;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: color 0.3s ease; /* Płynne przejście koloru */
+}
+
+.navbar a:hover {
+    color: #d35400; /* Zmiana koloru po najechaniu myszką */
+}
+
+
+/* HERO SECTION (SPLIT-SCREEN HERO - ZAKTUALIZOWANE) */
+.hero {
+    height: 85vh;
+    position: relative; /* Potrzebne, żeby tekst nałożyć centralnie na zdjęcia */
+    overflow: hidden; /* Żeby zdjęcia nie wychodziły poza krawędź przy powiększeniu (hover) */
+    background-color: #1a1a1a; /* Domyślne ciemne tło */
+}
+
+/* Kontener dla podzielonych zdjęć */
+.hero-split-images {
+    display: flex; /* Używamy flexbox, żeby ułożyć zdjęcia obok siebie */
+    width: 100%;
+    height: 100%;
+    position: absolute; /* Tło pod spodem */
+    top: 0;
+    left: 0;
+    z-index: 1; /* Warstwa pod tekstem */
+}
+
+/* Pojedyncza połówka tła */
+.hero-split {
+    flex: 1; /* Każda połówka zajmuje 50% szerokości */
+    position: relative; /* Potrzebne dla nakładki */
+    height: 100%;
+}
+
+.hero-split img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Zdjęcie wypełnia połówkę bez rozciągania */
+    object-position: center;
+    transition: transform 0.8s ease; /* Płynne powiększenie zdjęcia przy najechaniu */
+}
+
+/* CIEMNA NAKŁADKA (Przeniesiona na każdą połówkę osobno) */
+.hero-split-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(20, 20, 20, 0.7); /* Przyciemnienie dla czytelności tekstu */
+    z-index: 2; /* Warstwa nad zdjęciem, pod tekstem */
+}
+
+/* TEKST I PRZYCISK (Zostaje centralnie) */
+.hero-content {
+    position: absolute; /* Tekst nałożony centralnie nad tłem */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Precyzyjne wyśrodkowanie */
+    z-index: 10; /* Najwyższa warstwa, nad nakładką */
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 3.8rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    font-weight: 300;
+    color: #e0e0e0;
+}
+
+/* RESPONSYWNOŚĆ DLA MAŁYCH EKRANÓW (Telefony) */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    line-height: 1.1;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    font-weight: 300;
+    color: #e0e0e0;
+}
+
+/* PRZYCISKI - Wersja Premium */
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: #d35400; /* Elegancki, zgaszony pomarańcz/rdza */
+    color: white;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #e67e22;
+    transform: translateY(-3px); /* Przycisk lekko unosi się po najechaniu */
+}
+
+/* WSPÓLNE DLA SEKCJI */
+section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* USŁUGI (Grid) */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    border: 1px solid #eee;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+}
+
+/* PORTFOLIO (ZAKTUALIZOWANE - NOWOCZESNY GRID) */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dwie kolumny obok siebie */
+    gap: 15px; /* Mniejszy odstęp między zdjęciami */
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.portfolio-item {
+    position: relative; /* Potrzebne do pozycjonowania napisu wewnątrz */
+    overflow: hidden; /* Żeby zdjęcie nie wychodziło poza krawędź przy powiększeniu */
+    aspect-ratio: 16 / 10; /* Eleganckie proporcje zdjęć */
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Zdjęcie wypełnia cały blok bez rozciągania */
+    transition: transform 0.5s ease; /* Płynne powiększenie zdjęcia przy najechaniu */
+}
+
+/* NAKŁADKA (Ciemne tło z napisem, pojawia się po najechaniu) */
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 26, 26, 0.85); /* Ciemne tło z przezroczystością */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    opacity: 0; /* Domyślnie niewidoczne */
+    transition: opacity 0.3s ease; /* Płynne pojawianie się */
+    padding: 20px;
+}
+
+.portfolio-overlay h3 {
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* EFEKT NAJECHANIA (Hover) */
+.portfolio-item:hover img {
+    transform: scale(1.05); /* Delikatne powiększenie zdjęcia */
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1; /* Nakładka staje się widoczna */
+}
+
+/* RESPONSYWNOŚĆ DLA MAŁYCH EKRANÓW */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* Na telefonach: jedno zdjęcie pod drugim */
+    }
+}
+
+/* KONTAKT (ZAKTUALIZOWANE - NOWOCZESNY UKŁAD) */
+.contact-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    max-width: 1000px;
+    margin: 40px auto 0;
+    text-align: left; /* Wyrównanie tekstu do lewej wygląda bardziej pro */
+}
+
+/* DANE FIRMY (Lewa kolumna) */
+.contact-info {
+    flex: 1; /* Zajmuje 1 część szerokości */
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* FORMULARZ (Prawa kolumna) */
+.contact-form {
+    flex: 1.5; /* Zajmuje 1.5 części szerokości (jest szerszy) */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Minimalistyczne pola tekstowe (Tylko dolna linia) */
+.contact-form input, 
+.contact-form textarea {
+    padding: 10px 0;
+    border: none;
+    border-bottom: 2px solid #ddd; /* Szara linia na dole */
+    background-color: transparent;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s ease; /* Płynna zmiana koloru */
+}
+
+/* Reakcja na kliknięcie w pole */
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    outline: none; /* Usuwa brzydką domyślną ramkę przeglądarki */
+    border-bottom-color: #d35400; /* Linia zmienia kolor na nasz akcentowy (pomarańcz) */
+}
+
+.contact-form .btn {
+    align-self: flex-start; /* Przycisk nie rozciąga się na całą szerokość */
+    margin-top: 10px;
+}
+
+/* RESPONSYWNOŚĆ DLA MAŁYCH EKRANÓW (Telefony) */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        flex-direction: column; /* Na telefonach formularz spada pod dane kontaktowe */
+        gap: 40px;
+    }
+}
+
+/* STOPKA */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
