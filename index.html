@@ -125,10 +125,17 @@
                 <p>📞 +48 123 456 789</p>
             </div>
 
-            <form class="contact-form">
-                <input type="text" placeholder="Imię i nazwisko" required>
-                <input type="email" placeholder="Adres e-mail" required>
-                <textarea placeholder="Opisz krótko swój projekt..." rows="5" required></textarea>
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                
+                <input type="hidden" name="access_key" value="5a941842-5de0-476c-81d4-6870323ef882">
+                
+                <input type="hidden" name="subject" value="Nowe zapytanie ze strony Lumina!">
+                <input type="hidden" name="redirect" value="https://maieldakacper.github.io/lumina-architecture/">
+                
+                <input type="text" name="name" placeholder="Imię i nazwisko" required>
+                <input type="email" name="email" placeholder="Adres e-mail" required>
+                <textarea name="message" placeholder="Opisz krótko swój projekt..." rows="5" required></textarea>
+                
                 <button type="submit" class="btn">Wyślij wiadomość</button>
             </form>
         </div>
