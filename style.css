@@ -1,3 +1,6 @@
+html {
+    scroll-behavior: smooth;
+}
 /* RESET PODSTAWOWY */
 * {
     margin: 0;
@@ -379,4 +382,151 @@ footer {
     text-align: center;
     padding: 20px;
     margin-top: 40px;
+}
+
+/* --- 8. USŁUGI (Karty Premium) --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 50px 30px;
+    border-radius: 8px; /* Delikatne zaokrąglenie rogów */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Bardzo miękki, ekskluzywny cień */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    border: 1px solid #f0f0f0; /* Ultra-delikatna ramka */
+}
+
+/* Efekt najechania (Hover) */
+.card:hover {
+    transform: translateY(-10px); /* Karta unosi się do góry */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); /* Cień staje się mocniejszy */
+}
+
+/* Ikony w kartach */
+.card .icon {
+    font-size: 2.5rem;
+    color: #d35400; /* Nasz firmowy pomarańcz */
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsywność dla kart usług (Żeby dobrze wyglądały na tabletach i telefonach) */
+@media (max-width: 900px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- PRZYCISK SCROLL TO TOP --- */
+.scroll-top {
+    position: fixed; 
+    bottom: 30px; 
+    right: 30px; 
+    background-color: #d35400; 
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    opacity: 0; 
+    visibility: hidden; 
+    transition: all 0.3s ease; 
+    z-index: 999; 
+}
+
+.scroll-top.show {
+    opacity: 1; 
+    visibility: visible;
+}
+
+.scroll-top:hover {
+    background-color: #e67e22; 
+    transform: translateY(-5px); 
+    color: white; 
+}
+
+/* ==========================================================================
+   8. PEŁNA RESPONSYWNOŚĆ DLA TELEFONÓW (MOBILE FIXES)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    
+    /* --- NAWIGACJA: Układamy elementy pionowo --- */
+    .navbar {
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+    
+    .navbar ul {
+        flex-wrap: wrap; /* Pozwala linkom zawinąć się do nowej linii, jeśli brakuje miejsca */
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .navbar a.nav-btn {
+        padding: 8px 15px; /* Trochę mniejszy przycisk kontaktu na telefonie */
+    }
+
+    /* --- HERO SECTION: Zmiana cięcia z pionowego na poziome --- */
+    /* Dom będzie na górze, biuro na dole, a cięcie będzie ukośne w poprzek ekranu */
+    .hero-split.home {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 55%, 0% 45%);
+    }
+
+    .hero-split.office {
+        clip-path: polygon(0% 45%, 100% 55%, 100% 100%, 0% 100%);
+    }
+
+    /* Pomniejszamy tekst, żeby nie rozpychał ekranu */
+    .hero-content {
+        width: 95%;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem; 
+        margin-bottom: 15px;
+    }
+
+    .hero-content p {
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+    }
+
+    /* --- OGÓLNE ODSTĘPY: Mniejsze marginesy dla sekcji na telefonie --- */
+    section {
+        padding: 60px 15px; /* Mniej pustej przestrzeni nad i pod sekcjami */
+    }
+
+    section h2 {
+        font-size: 1.7rem;
+        margin-bottom: 30px;
+    }
 }
