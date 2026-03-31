@@ -98,58 +98,77 @@ section h2::after {
 }
 
 
-/* HERO SECTION (SPLIT-SCREEN HERO - ZAKTUALIZOWANE) */
+/* --- HERO SECTION (Ukośny Split-Screen) --- */
 .hero {
     height: 85vh;
-    position: relative; /* Potrzebne, żeby tekst nałożyć centralnie na zdjęcia */
-    overflow: hidden; /* Żeby zdjęcia nie wychodziły poza krawędź przy powiększeniu (hover) */
-    background-color: #1a1a1a; /* Domyślne ciemne tło */
+    position: relative;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    margin: 0;
+    padding: 0; 
+    width: 100%;
+    max-width: none !important; /* Rozciąga sekcję od lewej do prawej */
 }
 
 /* Kontener dla podzielonych zdjęć */
 .hero-split-images {
-    display: flex; /* Używamy flexbox, żeby ułożyć zdjęcia obok siebie */
     width: 100%;
     height: 100%;
-    position: absolute; /* Tło pod spodem */
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 1; /* Warstwa pod tekstem */
+    z-index: 1;
 }
 
 /* Pojedyncza połówka tła */
 .hero-split {
-    flex: 1; /* Każda połówka zajmuje 50% szerokości */
-    position: relative; /* Potrzebne dla nakładki */
-    height: 100%;
-}
-
-.hero-split img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Zdjęcie wypełnia połówkę bez rozciągania */
-    object-position: center;
-    transition: transform 0.8s ease; /* Płynne powiększenie zdjęcia przy najechaniu */
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-/* CIEMNA NAKŁADKA (Przeniesiona na każdą połówkę osobno) */
+/* CIEMNA NAKŁADKA */
 .hero-split-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(20, 20, 20, 0.7); /* Przyciemnienie dla czytelności tekstu */
-    z-index: 2; /* Warstwa nad zdjęciem, pod tekstem */
+    background-color: rgba(20, 20, 20, 0.7); 
+    z-index: 2; 
 }
 
-/* TEKST I PRZYCISK (Zostaje centralnie) */
+/* --- THE CLIPPING PATHS --- */
+
+/* Lewa strona: DOM */
+.hero-split.home {
+    z-index: 5;
+    clip-path: polygon(0 0, 65% 0, 35% 100%, 0 100%);
+    background-image: url('https://images.unsplash.com/photo-1721815693498-cc28507c0ba2?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+    background-size: cover; /* Naprawia czarne pasy! */
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+/* Prawa strona: BIURO */
+.hero-split.office {
+    z-index: 10;
+    clip-path: polygon(65% 0, 100% 0, 100% 100%, 35% 100%);
+    background-image: url('https://plus.unsplash.com/premium_photo-1661962650430-9547442d54f4?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+    background-size: cover; /* Naprawia czarne pasy! */
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+/* --- TEKST I PRZYCISK --- */
 .hero-content {
-    position: absolute; /* Tekst nałożony centralnie nad tłem */
+    position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Precyzyjne wyśrodkowanie */
-    z-index: 10; /* Najwyższa warstwa, nad nakładką */
+    transform: translate(-50%, -50%);
+    z-index: 100;
     width: 90%;
     max-width: 800px;
     text-align: center;
@@ -170,25 +189,33 @@ section h2::after {
     color: #e0e0e0;
 }
 
-/* RESPONSYWNOŚĆ DLA MAŁYCH EKRANÓW (Telefony) */
+/* --- PRZYCISK --- */
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: #d35400; 
+    color: white;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #e67e22;
+    transform: translateY(-3px);
+}
+
+/* RESPONSYWNOŚĆ HERO DLA MAŁYCH EKRANÓW */
 @media (max-width: 768px) {
     .hero-content h1 {
         font-size: 2.8rem;
     }
-}
-
-.hero h1 {
-    font-size: 4rem;
-    margin-bottom: 20px;
-    color: #ffffff;
-    line-height: 1.1;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 40px;
-    font-weight: 300;
-    color: #e0e0e0;
 }
 
 /* PRZYCISKI - Wersja Premium */
@@ -347,7 +374,7 @@ section h2 {
 .contact-form textarea {
     padding: 10px 0;
     border: none;
-    border-bottom: 2px solid #ddd; /* Szara linia na dole */
+    border-bottom: 2px solid #ddd; 
     background-color: transparent;
     font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
@@ -358,19 +385,19 @@ section h2 {
 /* Reakcja na kliknięcie w pole */
 .contact-form input:focus, 
 .contact-form textarea:focus {
-    outline: none; /* Usuwa brzydką domyślną ramkę przeglądarki */
-    border-bottom-color: #d35400; /* Linia zmienia kolor na nasz akcentowy (pomarańcz) */
+    outline: none; 
+    border-bottom-color: #d35400; 
 }
 
 .contact-form .btn {
-    align-self: flex-start; /* Przycisk nie rozciąga się na całą szerokość */
+    align-self: flex-start; 
     margin-top: 10px;
 }
 
 /* RESPONSYWNOŚĆ DLA MAŁYCH EKRANÓW (Telefony) */
 @media (max-width: 768px) {
     .contact-wrapper {
-        flex-direction: column; /* Na telefonach formularz spada pod dane kontaktowe */
+        flex-direction: column; 
         gap: 40px;
     }
 }
@@ -386,7 +413,7 @@ footer {
 
 /* --- 10. STOPKA (FOOTER) --- */
 .footer {
-    background-color: #1a1a1a; /* Elegancka, ciemna szarość/czerń */
+    background-color: #1a1a1a; 
     color: #e0e0e0;
     padding: 70px 20px 20px;
     font-family: 'Open Sans', sans-serif;
@@ -445,7 +472,7 @@ footer {
 }
 
 .footer-col ul li a:hover {
-    color: #d35400; /* Linki podświetlają się na nasz kolor firmowy */
+    color: #d35400; 
 }
 
 /* Ikonki Social Media */
@@ -469,7 +496,7 @@ footer {
 
 .social-links a:hover {
     background-color: #d35400;
-    transform: translateY(-3px); /* Ikonki lekko podskakują */
+    transform: translateY(-3px); 
 }
 
 /* Dolny pasek Copyright */
@@ -482,7 +509,7 @@ footer {
     color: #888;
 }
 
-/* --- 8. USŁUGI (Karty Premium) --- */
+/* --- 8. USŁUGI --- */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -493,23 +520,23 @@ footer {
 .card {
     background-color: #ffffff;
     padding: 50px 30px;
-    border-radius: 8px; /* Delikatne zaokrąglenie rogów */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Bardzo miękki, ekskluzywny cień */
+    border-radius: 8px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
-    border: 1px solid #f0f0f0; /* Ultra-delikatna ramka */
+    border: 1px solid #f0f0f0; 
 }
 
 /* Efekt najechania (Hover) */
 .card:hover {
-    transform: translateY(-10px); /* Karta unosi się do góry */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); /* Cień staje się mocniejszy */
+    transform: translateY(-10px); 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); 
 }
 
 /* Ikony w kartach */
 .card .icon {
     font-size: 2.5rem;
-    color: #d35400; /* Nasz firmowy pomarańcz */
+    color: #d35400; 
     margin-bottom: 20px;
 }
 
@@ -524,7 +551,7 @@ footer {
     line-height: 1.6;
 }
 
-/* Responsywność dla kart usług (Żeby dobrze wyglądały na tabletach i telefonach) */
+/* Responsywność dla kart usług  */
 @media (max-width: 900px) {
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -571,7 +598,7 @@ footer {
 }
 
 /* ==========================================================================
-   8. PEŁNA RESPONSYWNOŚĆ DLA TELEFONÓW (MOBILE FIXES)
+   8. PEŁNA RESPONSYWNOŚĆ DLA TELEFONÓW
    ========================================================================== */
 
 @media (max-width: 768px) {
