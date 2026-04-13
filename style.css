@@ -10,14 +10,14 @@ html {
 
 /* GŁÓWNE USTAWIENIA TYPOGRAFII */
 body {
-    font-family: 'Open Sans', sans-serif; /* Czysty font do tekstu */
+    font-family: 'Open Sans', sans-serif; 
     color: #4a4a4a;
-    line-height: 1.7; /* Większy odstęp między liniami = strona "oddycha" */
+    line-height: 1.7; 
     background-color: #fafafa;
 }
 
 h1, h2, h3, .logo {
-    font-family: 'Montserrat', sans-serif; /* Elegancki font do nagłówków */
+    font-family: 'Montserrat', sans-serif;
     color: #1a1a1a;
     font-weight: 700;
 }
@@ -30,17 +30,17 @@ h1, h2, h3, .logo {
     padding: 25px 50px;
     background-color: #ffffff;
     border-bottom: 1px solid #eaeaea;
-    position: sticky; /* Menu będzie się trzymać góry ekranu */
+    position: sticky;
     top: 0;
     z-index: 100;
 }
 
 .logo {
     font-size: 1.5rem;
-    letter-spacing: 2px; /* Rozstrzelone litery wyglądają premium */
+    letter-spacing: 2px;
 }
 
-/* POMARAŃCZOWE AKCENTY FIRMOWE */
+
 
 /* Kropka w logo */
 .accent {
@@ -49,33 +49,33 @@ h1, h2, h3, .logo {
 
 /* Ozdobna linia pod nagłówkami sekcji (H2) */
 section h2::after {
-    content: ''; /* Wymagane, żeby element w ogóle się pojawił */
+    content: ''; 
     display: block;
-    width: 60px; /* Długość kreseczki */
-    height: 3px; /* Grubość kreseczki */
-    background-color: #d35400; /* Nasz pomarańcz */
-    margin: 15px auto 0; /* Automatycznie centruje linię pod tekstem */
+    width: 60px; 
+    height: 3px; 
+    background-color: #d35400; 
+    margin: 15px auto 0; 
 }
 
 /* WYRÓŻNIONY PRZYCISK "KONTAKT" W MENU */
 .navbar a.nav-btn {
-    background-color: #d35400; /* Nasz firmowy pomarańcz */
-    color: #ffffff; /* Biały tekst na pomarańczowym tle */
+    background-color: #d35400;
+    color: #ffffff;
     padding: 10px 25px;
-    border-radius: 3px; /* Bardzo delikatne, nowoczesne zaokrąglenie rogów */
+    border-radius: 3px; 
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 /* Zachowanie po najechaniu myszką */
 .navbar a.nav-btn:hover {
-    background-color: #e67e22; /* Jaśniejszy pomarańcz */
-    color: #ffffff; /* Wymuszamy, żeby tekst został biały (nie robił się pomarańczowy jak reszta menu) */
-    transform: translateY(-2px); /* Przycisk lekko unosi się do góry */
+    background-color: #e67e22; 
+    color: #ffffff; 
+    transform: translateY(-2px); 
 }
 
-/* Wyrównanie linii w sekcji kontaktowej (bo tam daliśmy tekst do lewej) */
+/* Wyrównanie linii w sekcji kontaktowej */
 #contact h2::after {
-    margin: 15px 0 0; /* Zeruje automatyczne centrowanie z prawej i lewej */
+    margin: 15px 0 0; 
 }
 
 .navbar ul {
@@ -90,15 +90,15 @@ section h2::after {
     font-weight: 600;
     font-size: 0.9rem;
     text-transform: uppercase;
-    transition: color 0.3s ease; /* Płynne przejście koloru */
+    transition: color 0.3s ease;
 }
 
 .navbar a:hover {
-    color: #d35400; /* Zmiana koloru po najechaniu myszką */
+    color: #d35400; 
 }
 
 
-/* --- HERO SECTION (Ukośny Split-Screen) --- */
+/* --- HERO SECTION  --- */
 .hero {
     height: 85vh;
     position: relative;
@@ -107,9 +107,8 @@ section h2::after {
     margin: 0;
     padding: 0; 
     width: 100%;
-    max-width: none !important; /* Rozciąga sekcję od lewej do prawej */
+    max-width: none !important; 
 }
-
 /* Kontener dla podzielonych zdjęć */
 .hero-split-images {
     width: 100%;
@@ -140,14 +139,14 @@ section h2::after {
     z-index: 2; 
 }
 
-/* --- THE CLIPPING PATHS --- */
+
 
 /* Lewa strona: DOM */
 .hero-split.home {
     z-index: 5;
     clip-path: polygon(0 0, 65% 0, 35% 100%, 0 100%);
-    background-image: url('https://images.unsplash.com/photo-1721815693498-cc28507c0ba2?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
-    background-size: cover; /* Naprawia czarne pasy! */
+    background-image: url('https://images.unsplash.com/photo-1721815693498-cc28507c0ba2?q=80&w=880&auto=format&fit=crop'); 
+    background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
 }
@@ -156,8 +155,8 @@ section h2::after {
 .hero-split.office {
     z-index: 10;
     clip-path: polygon(65% 0, 100% 0, 100% 100%, 35% 100%);
-    background-image: url('https://plus.unsplash.com/premium_photo-1661962650430-9547442d54f4?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
-    background-size: cover; /* Naprawia czarne pasy! */
+    background-image: url('https://plus.unsplash.com/premium_photo-1661962650430-9547442d54f4?q=80&w=1172&auto=format&fit=crop'); 
+    background-size: cover;
     background-position: center; 
     background-repeat: no-repeat;
 }
@@ -218,11 +217,11 @@ section h2::after {
     }
 }
 
-/* PRZYCISKI - Wersja Premium */
+/* PRZYCISKI */
 .btn {
     display: inline-block;
     padding: 15px 35px;
-    background-color: #d35400; /* Elegancki, zgaszony pomarańcz/rdza */
+    background-color: #d35400; 
     color: white;
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
@@ -237,7 +236,7 @@ section h2::after {
 
 .btn:hover {
     background-color: #e67e22;
-    transform: translateY(-3px); /* Przycisk lekko unosi się po najechaniu */
+    transform: translateY(-3px); 
 }
 
 /* WSPÓLNE DLA SEKCJI */
@@ -271,42 +270,42 @@ section h2 {
     margin-bottom: 15px;
 }
 
-/* PORTFOLIO (ZAKTUALIZOWANE - NOWOCZESNY GRID) */
+/* PORTFOLIO  */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Dwie kolumny obok siebie */
-    gap: 15px; /* Mniejszy odstęp między zdjęciami */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px; 
     max-width: 1000px;
     margin: 0 auto;
 }
 
 .portfolio-item {
-    position: relative; /* Potrzebne do pozycjonowania napisu wewnątrz */
-    overflow: hidden; /* Żeby zdjęcie nie wychodziło poza krawędź przy powiększeniu */
-    aspect-ratio: 16 / 10; /* Eleganckie proporcje zdjęć */
+    position: relative; 
+    overflow: hidden; 
+    aspect-ratio: 16 / 10;
 }
 
 .portfolio-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Zdjęcie wypełnia cały blok bez rozciągania */
-    transition: transform 0.5s ease; /* Płynne powiększenie zdjęcia przy najechaniu */
+    object-fit: cover; 
+    transition: transform 0.5s ease; 
 }
 
-/* NAKŁADKA (Ciemne tło z napisem, pojawia się po najechaniu) */
+/* NAKŁADKA  */
 .portfolio-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(26, 26, 26, 0.85); /* Ciemne tło z przezroczystością */
+    background-color: rgba(26, 26, 26, 0.85); 
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    opacity: 0; /* Domyślnie niewidoczne */
-    transition: opacity 0.3s ease; /* Płynne pojawianie się */
+    opacity: 0;
+    transition: opacity 0.3s ease; 
     padding: 20px;
 }
 
@@ -321,35 +320,34 @@ section h2 {
 
 /* EFEKT NAJECHANIA (Hover) */
 .portfolio-item:hover img {
-    transform: scale(1.05); /* Delikatne powiększenie zdjęcia */
+    transform: scale(1.05); 
 }
 
 .portfolio-item:hover .portfolio-overlay {
-    opacity: 1; /* Nakładka staje się widoczna */
+    opacity: 1; 
 }
 
 /* RESPONSYWNOŚĆ DLA MAŁYCH EKRANÓW */
 @media (max-width: 768px) {
     .portfolio-grid {
-        grid-template-columns: 1fr; /* Na telefonach: jedno zdjęcie pod drugim */
+        grid-template-columns: 1fr; 
     }
 }
 
-/* KONTAKT (ZAKTUALIZOWANE - NOWOCZESNY UKŁAD) */
+/* KONTAKT */
 .contact-wrapper {
     display: flex;
     justify-content: space-between;
     gap: 50px;
     max-width: 1000px;
     margin: 40px auto 0;
-    text-align: left; /* Wyrównanie tekstu do lewej wygląda bardziej pro */
+    text-align: left; 
 }
 
-/* DANE FIRMY (Lewa kolumna) */
+/* DANE FIRMY  */
 .contact-info {
-    flex: 1; /* Zajmuje 1 część szerokości */
+    flex: 1; 
 }
-
 .contact-info h3 {
     font-size: 1.5rem;
     margin-bottom: 15px;
@@ -361,15 +359,15 @@ section h2 {
     font-size: 0.95rem;
 }
 
-/* FORMULARZ (Prawa kolumna) */
+/* FORMULARZ  */
 .contact-form {
-    flex: 1.5; /* Zajmuje 1.5 części szerokości (jest szerszy) */
+    flex: 1.5; 
     display: flex;
     flex-direction: column;
     gap: 25px;
 }
 
-/* Minimalistyczne pola tekstowe (Tylko dolna linia) */
+/* Minimalistyczne pola tekstowe */
 .contact-form input, 
 .contact-form textarea {
     padding: 10px 0;
@@ -379,7 +377,7 @@ section h2 {
     font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     color: #333;
-    transition: border-color 0.3s ease; /* Płynna zmiana koloru */
+    transition: border-color 0.3s ease; 
 }
 
 /* Reakcja na kliknięcie w pole */
@@ -411,7 +409,7 @@ footer {
     margin-top: 40px;
 }
 
-/* --- 10. STOPKA (FOOTER) --- */
+
 .footer {
     background-color: #1a1a1a; 
     color: #e0e0e0;
@@ -425,12 +423,12 @@ footer {
     display: flex;
     justify-content: space-between;
     gap: 40px;
-    flex-wrap: wrap; /* Pozwala kolumnom zawijać się na małych ekranach */
+    flex-wrap: wrap; 
 }
 
 .footer-col {
     flex: 1;
-    min-width: 250px; /* Zapobiega zbytniemu ściskaniu kolumn */
+    min-width: 250px;
 }
 
 .footer-logo {
@@ -446,7 +444,7 @@ footer {
     position: relative;
 }
 
-/* Mała pomarańczowa kreseczka pod nagłówkami w stopce */
+
 .footer-col h4::after {
     content: '';
     display: block;
@@ -647,7 +645,7 @@ footer {
 
     /* --- OGÓLNE ODSTĘPY: Mniejsze marginesy dla sekcji na telefonie --- */
     section {
-        padding: 60px 15px; /* Mniej pustej przestrzeni nad i pod sekcjami */
+        padding: 60px 15px; 
     }
 
     section h2 {
